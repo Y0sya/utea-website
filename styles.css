@@ -59,17 +59,23 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 }
 .topbar__inner {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 6px 16px;
+  gap: 6px 14px;
   flex-wrap: wrap;
   padding-top: 10px;
   padding-bottom: 10px;
+  color: var(--ink);
 }
+.topbar__inner:hover { text-decoration: none; }
 .topbar__msg { color: var(--ink); }
-.topbar__msg .label { margin-right: 8px; }
-.topbar__link { color: var(--teal); font-weight: 600; white-space: nowrap; }
-.topbar__link:hover { color: var(--teal-deep); }
+.topbar__cta { color: var(--teal); font-weight: 600; white-space: nowrap; }
+.topbar__inner:hover .topbar__cta { color: var(--teal-deep); }
+
+@keyframes topbar-scroll {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
 
 /* ---------- Navigation ---------- */
 .nav {
@@ -405,4 +411,34 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .section, .cta-band { padding: 56px 0; }
   .section__head { margin-bottom: 36px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
+
+  /* announcement bar becomes a horizontal marquee on phones */
+  .topbar { overflow: hidden; }
+  .topbar__inner {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    white-space: nowrap;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    padding: 10px 0;
+    animation: topbar-scroll 20s linear infinite;
+    will-change: transform;
+  }
+  .topbar .label, .topbar__msg, .topbar__cta { white-space: nowrap; }
+}
+
+/* Reduced-motion users: don't scroll — wrap the bar instead */
+@media (prefers-reduced-motion: reduce) {
+  .topbar { overflow: visible; }
+  .topbar__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+    width: auto;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 10px 18px;
+    animation: none;
+  }
 }
