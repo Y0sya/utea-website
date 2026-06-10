@@ -51,6 +51,26 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   color: var(--teal);
 }
 
+/* ---------- Announcement bar (community / non-UTEA event) ---------- */
+.topbar {
+  background: rgba(14, 135, 156, 0.07);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 16px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.topbar__msg { color: var(--ink); }
+.topbar__msg .label { margin-right: 8px; }
+.topbar__link { color: var(--teal); font-weight: 600; white-space: nowrap; }
+.topbar__link:hover { color: var(--teal-deep); }
+
 /* ---------- Navigation ---------- */
 .nav {
   position: sticky;
