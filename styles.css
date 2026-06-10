@@ -71,10 +71,13 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 .topbar__msg { color: var(--ink); }
 .topbar__cta { color: var(--teal); font-weight: 600; white-space: nowrap; }
 .topbar__inner:hover .topbar__cta { color: var(--teal-deep); }
+.topbar__group { display: contents; }
+.topbar__dup { display: none; }
 
+/* Seamless loop: track holds two copies; -50% lands copy 2 where copy 1 began */
 @keyframes topbar-scroll {
-  from { transform: translateX(100vw); }
-  to { transform: translateX(-100%); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ---------- Navigation ---------- */
@@ -412,19 +415,28 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .section__head { margin-bottom: 36px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 
-  /* announcement bar becomes a horizontal marquee on phones */
+  /* announcement bar becomes a seamless horizontal marquee on phones */
   .topbar { overflow: hidden; }
   .topbar__inner {
     flex-wrap: nowrap;
     justify-content: flex-start;
-    white-space: nowrap;
+    gap: 0;
     width: max-content;
     max-width: none;
     margin: 0;
     padding: 10px 0;
-    animation: topbar-scroll 20s linear infinite;
+    animation: topbar-scroll 22s linear infinite;
+    animation-delay: -15s; /* start mid-scroll so the label is already on screen */
     will-change: transform;
   }
+  .topbar__group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px 14px;
+    padding-right: 36px; /* small gap between repeats */
+    white-space: nowrap;
+  }
+  .topbar__dup { display: inline-flex; }
   .topbar .label, .topbar__msg, .topbar__cta { white-space: nowrap; }
 }
 
@@ -434,6 +446,7 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .topbar__inner {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 6px 14px;
     white-space: normal;
     width: auto;
     max-width: var(--max);
@@ -441,4 +454,6 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
     padding: 10px 18px;
     animation: none;
   }
+  .topbar__group { display: contents; }
+  .topbar__dup { display: none; }
 }
