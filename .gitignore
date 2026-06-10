@@ -1,0 +1,15 @@
+# Local secrets — never commit
+_private/
+*.local.md
+*.local.txt
+
+# Brand kit archive (large, not for deploy)
+drive-download-*.zip
+
+# Build output
+dist/
+utea-site.zip
+
+# Temp screenshots
+preview-*.png
+_check.png
