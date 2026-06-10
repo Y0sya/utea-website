@@ -364,10 +364,9 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .nav__links .nav-hide { display: none; }
 }
 
-/* Compact nav on phones: UTEA mark + Apply button only */
+/* Compact nav on phones: full wordmark + Apply button (other links hidden) */
 @media (max-width: 640px) {
-  .brand__full { display: none; }
-  .brand__short { display: inline; letter-spacing: 0.02em; }
+  .brand__text { font-size: 0.88rem; line-height: 1.25; }
   .nav__links li:not(:last-child) { display: none; }
   .nav .btn--primary {
     padding: 9px 15px;
