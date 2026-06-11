@@ -393,13 +393,14 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .nav__links .nav-hide { display: none; }
 }
 
-/* Compact nav on phones: full wordmark + Apply button (other links hidden) */
+/* Compact nav on phones: UTEA mark + Apply button (other links hidden) */
 @media (max-width: 640px) {
-  .brand__text { font-size: 0.88rem; line-height: 1.25; }
+  .brand__full { display: none; }
+  .brand__short { display: inline; letter-spacing: 0.02em; }
   .nav__links li:not(:last-child) { display: none; }
   .nav .btn--primary {
-    padding: 9px 15px;
-    font-size: 0.85rem;
+    padding: 8px 13px;
+    font-size: 0.82rem;
     letter-spacing: 0;
     white-space: nowrap;
   }
@@ -410,13 +411,14 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .hero { padding: 60px 0 52px; }
   .hero h1 { font-size: clamp(1.9rem, 8.5vw, 2.35rem); }
   .hero__sub { font-size: 1.05rem; margin-top: 20px; }
-  .hero__actions { margin-top: 30px; gap: 12px; }
+  .hero__actions { margin-top: 28px; gap: 10px; }
+  .btn--lg { padding: 10px 16px; font-size: 0.82rem; }
   .section, .cta-band { padding: 56px 0; }
   .section__head { margin-bottom: 36px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 
   /* announcement bar becomes a seamless horizontal marquee on phones */
-  .topbar { overflow: hidden; }
+  .topbar { overflow: hidden; font-size: 0.8rem; }
   .topbar__inner {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -424,7 +426,7 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
     width: max-content;
     max-width: none;
     margin: 0;
-    padding: 10px 0;
+    padding: 6px 0;
     animation: topbar-scroll 22s linear infinite;
     animation-delay: -15s; /* start mid-scroll so the label is already on screen */
     will-change: transform;
