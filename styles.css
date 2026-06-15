@@ -128,6 +128,15 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 }
 .nav__links a:hover { color: var(--teal); }
 
+/* "Goes to another page" cue on the Resources link */
+.nav__links a .arrow {
+  display: inline-block;
+  font-size: 0.78em;
+  color: var(--teal-bright);
+  transition: transform 0.16s ease;
+}
+.nav__links a:hover .arrow { transform: translate(2px, -2px); }
+
 /* ---------- Buttons (squared "slots") ---------- */
 .btn {
   display: inline-block;
