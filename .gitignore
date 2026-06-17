@@ -13,3 +13,8 @@ utea-site.zip
 # Temp screenshots
 preview-*.png
 _check.png
+
+# Source cover art dropped in repo root (the deploy copy lives in assets/)
+/cover1.png
+/cover2.png
+/example.htm
