@@ -3,6 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      // Hide scroll-reveal targets before first paint (script.js reveals them),
+      // but only when motion is allowed and IntersectionObserver is supported —
+      // otherwise everything stays visible. Applying this now avoids any flash.
+      if ("IntersectionObserver" in window &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("reveal");
+      }
+      // Arrived from another page targeting a #section? Remember it, start at
+      // the top, and script.js will smooth-scroll down once the page has loaded.
+      var hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        window.__scrollTarget = hash.slice(1);
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    })();
+  </script>
   <title>University of Toronto Effective Altruism (UTEA)</title>
   <meta
     name="description"
@@ -63,12 +82,12 @@
     <a class="topbar__inner wrap" href="https://luma.com/8dqawc0k" target="_blank" rel="noopener">
       <span class="topbar__group">
         <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20) — open to everyone.</span>
+        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20), open to everyone.</span>
         <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
       </span>
       <span class="topbar__group topbar__dup" aria-hidden="true">
         <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20) — open to everyone.</span>
+        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20), open to everyone.</span>
         <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
       </span>
     </a>
@@ -119,8 +138,12 @@
           <a class="btn btn--primary btn--lg" href="https://airtable.com/appbVWsCsdDwe1Ild/pagBvklfHXJF147zX/form" target="_blank" rel="noopener">Apply to the Summer Intro Fellowship</a>
           <a class="btn btn--ghost btn--lg" href="resources.html">Explore resources</a>
         </div>
+        <p class="hero__deadline">Applications close <strong>July 5</strong></p>
       </div>
     </div>
+    <a class="hero__scroll" href="#about" aria-label="Scroll to learn more">
+      <span class="hero__scroll-chev" aria-hidden="true"></span>
+    </a>
   </section>
 
   <!-- About -->
@@ -130,7 +153,7 @@
         <h2>Using evidence and reason to help others as much as we can.</h2>
         <p>
           Effective altruism is about working out how to do the most good with the
-          resources we have — and then acting on it.
+          resources we have, then acting on it.
         </p>
       </div>
       <div class="cols">
@@ -178,10 +201,24 @@
     <div class="wrap">
       <h2>Apply to the Summer Intro Fellowship</h2>
       <p>
-        A free, beginner-friendly introduction to the core ideas of effective
-        altruism. No prior experience needed.
+        A free, beginner-friendly fellowship exploring the philosophy of effective
+        altruism and how you can have a real impact, alongside fellow students.
+        No prior experience needed.
       </p>
-      <a class="btn btn--primary btn--lg" href="https://airtable.com/appbVWsCsdDwe1Ild/pagBvklfHXJF147zX/form" target="_blank" rel="noopener">Apply now</a>
+      <ul class="cta-meta">
+        <li>8 weeks</li>
+        <li>Fully virtual</li>
+        <li>Toronto-based</li>
+      </ul>
+      <ul class="cta-points">
+        <li>Weekly assigned readings</li>
+        <li>Small-group discussions led by experienced facilitators</li>
+        <li>A welcoming cohort of students thinking it through together</li>
+      </ul>
+      <div class="cta-actions">
+        <a class="btn btn--primary btn--lg" href="https://airtable.com/appbVWsCsdDwe1Ild/pagBvklfHXJF147zX/form" target="_blank" rel="noopener">Apply now</a>
+        <p class="cta-band__deadline">Applications close <strong>July 5</strong></p>
+      </div>
     </div>
   </section>
 

@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Hide scroll-reveal targets before first paint (script.js reveals them on
+    // scroll), only when motion is allowed and IntersectionObserver is present.
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reveal");
+    }
+  </script>
   <title>Resources for Doing Good · University of Toronto Effective Altruism</title>
   <meta
     name="description"
@@ -49,12 +57,12 @@
     <a class="topbar__inner wrap" href="https://luma.com/8dqawc0k" target="_blank" rel="noopener">
       <span class="topbar__group">
         <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20) — open to everyone.</span>
+        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20), open to everyone.</span>
         <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
       </span>
       <span class="topbar__group topbar__dup" aria-hidden="true">
         <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20) — open to everyone.</span>
+        <span class="topbar__msg">A Toronto EA community meetup this Saturday (Jun 20), open to everyone.</span>
         <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
       </span>
     </a>
@@ -141,7 +149,7 @@
       </a>
       <a class="res-item" href="https://www.givingwhatwecan.org/get-involved/effective-altruism-reading-list" target="_blank" rel="noopener">
         <h4>EA Reading List <span class="arrow">↗</span></h4>
-        <p>Key essays behind the ideas — much of it forms the basis of our fellowship.</p>
+        <p>Key essays behind the ideas. Much of this forms the basis of our fellowship.</p>
       </a>
     </div>
   </main>
