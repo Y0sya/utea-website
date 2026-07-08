@@ -427,6 +427,7 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   font-weight: 600;
   color: #fff;
 }
+.cta-band__deadline s { color: rgba(255, 255, 255, 0.45); }
 
 /* Hero deadline — a compact line set off by a quiet teal accent bar */
 .hero__deadline {
@@ -439,6 +440,7 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   color: var(--muted);
 }
 .hero__deadline strong { font-weight: 600; color: var(--teal-deep); }
+.hero__deadline s { opacity: 0.55; }
 
 /* ---------- Resources page ---------- */
 .page-hero {
