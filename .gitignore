@@ -18,3 +18,10 @@ _check.png
 /cover1.png
 /cover2.png
 /example.htm
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
