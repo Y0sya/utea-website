@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the UTEA Discord · University of Toronto Effective Altruism</title>
+  <!-- Interstitial: the invite never appears in the page source as a URL, and
+       this page is kept out of search indexes, so scrapers can't harvest it. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" type="image/svg+xml" href="assets/ea-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html" aria-label="UofT Effective Altruism home">
+        <img class="brand__mark" src="assets/ea-logo.svg" alt="" aria-hidden="true" />
+        <span class="brand__text">
+          <span class="brand__full">University of Toronto Effective Altruism</span>
+          <span class="brand__short">UTEA</span>
+        </span>
+      </a>
+
+      <nav>
+        <ul class="nav__links">
+          <li class="nav-hide"><a href="team.html">Team</a></li>
+          <li class="nav-hide"><a href="resources.html">Resources</a></li>
+          <li>
+            <a class="btn btn--primary" href="index.html#meetup">Next meetup</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="gate">
+    <div class="wrap gate__inner">
+      <span class="gate__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 18" width="46" height="35" fill="currentColor" role="img">
+          <path d="M20.317 1.492A19.79 19.79 0 0 0 15.432 0c-.21.375-.456.88-.625 1.28a18.27 18.27 0 0 0-5.61 0C9.028.88 8.776.375 8.564 0A19.736 19.736 0 0 0 3.677 1.496C.573 6.12-.27 10.63.152 15.077a19.9 19.9 0 0 0 6.033 3.049c.486-.66.92-1.363 1.293-2.103a12.9 12.9 0 0 1-2.036-.978c.171-.126.338-.257.499-.392 3.926 1.823 8.18 1.823 12.06 0 .163.135.33.266.5.392-.65.383-1.334.71-2.04.98.374.739.805 1.442 1.292 2.102a19.84 19.84 0 0 0 6.036-3.048c.5-5.177-.838-9.647-3.472-13.587ZM8.02 12.341c-1.182 0-2.152-1.086-2.152-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Zm7.96 0c-1.183 0-2.153-1.086-2.153-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Z"/>
+        </svg>
+      </span>
+      <h1>Join the UTEA Discord</h1>
+      <p class="gate__lede">
+        Our Discord is where we post meetups, dinners and reading groups.
+      </p>
+
+      <div class="gate__actions">
+        <button class="btn btn--primary btn--lg" type="button" id="gate-go">
+          Take me to the invite
+        </button>
+        <a class="textlink" href="index.html">Back to the homepage</a>
+      </div>
+
+      <p class="gate__note" id="gate-status" role="status" aria-live="polite">
+        Opens Discord in a new tab.
+      </p>
+
+      <noscript>
+        <p class="gate__note">
+          This page needs JavaScript to reveal the invite — please enable it,
+          or ask an organiser to send you the link directly.
+        </p>
+      </noscript>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img src="assets/ea-logo.svg" alt="" aria-hidden="true" />
+        <span>UofT Effective Altruism</span>
+      </div>
+      <ul class="footer__links">
+        <li><a href="team.html">Team</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="index.html#meetup">Meetups</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // The invite is stored reversed + base64'd and only assembled on a real
+    // click, so a crawler reading the HTML finds no invite URL to follow.
+    (function () {
+      var btn = document.getElementById("gate-go");
+      var status = document.getElementById("gate-status");
+      if (!btn) return;
+
+      function unscramble(s) {
+        return atob(s.split("").reverse().join(""));
+      }
+
+      btn.addEventListener("click", function () {
+        var url = "https://" + unscramble("==wZn5CZy92YzlGZ") + "/" + unscramble("==ARStUQDZjanlVN");
+        status.textContent = "Opening Discord\u2026";
+        var w = window.open(url, "_blank", "noopener");
+        if (!w) window.location.href = url; // popup blocked — go in place
+      });
+    })();
+  </script>
+</body>
+</html>

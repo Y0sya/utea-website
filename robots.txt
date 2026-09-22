@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Invite interstitial — deliberately not indexed
+Disallow: /discord.html
 
 Sitemap: https://uteffectivealtruism.ca/sitemap.xml

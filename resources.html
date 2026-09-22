@@ -45,29 +45,15 @@
   />
   <meta name="twitter:image" content="https://uteffectivealtruism.ca/assets/ea-logo.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
-  <!-- Community announcement (not a UTEA event) — remove after Jul 25, 2026 -->
-  <div class="topbar">
-    <a class="topbar__inner wrap" href="https://luma.com/qa6q1ces" target="_blank" rel="noopener">
-      <span class="topbar__group">
-        <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup on <strong>Saturday, July 25</strong>, open to everyone.</span>
-        <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
-      </span>
-      <span class="topbar__group topbar__dup" aria-hidden="true">
-        <span class="label">Community event</span>
-        <span class="topbar__msg">A Toronto EA community meetup on <strong>Saturday, July 25</strong>, open to everyone.</span>
-        <span class="topbar__cta">RSVP on Luma <span aria-hidden="true">↗</span></span>
-      </span>
-    </a>
-  </div>
-
   <!-- Navigation -->
   <header class="nav">
     <div class="wrap nav__inner">
@@ -81,11 +67,17 @@
 
       <nav>
         <ul class="nav__links">
-          <li class="nav-hide"><a href="index.html#about">About</a></li>
-          <li class="nav-hide"><a href="index.html#focus">Focus Areas</a></li>
+          <li class="nav-hide"><a href="team.html">Team</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li>
-            <a class="btn btn--primary" href="index.html#apply">Summer Intro Fellowship</a>
+            <a class="discord-mark" href="discord.html" aria-label="Join the UTEA Discord" title="Join our Discord">
+              <svg viewBox="0 0 24 18" width="22" height="17" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.317 1.492A19.79 19.79 0 0 0 15.432 0c-.21.375-.456.88-.625 1.28a18.27 18.27 0 0 0-5.61 0C9.028.88 8.776.375 8.564 0A19.736 19.736 0 0 0 3.677 1.496C.573 6.12-.27 10.63.152 15.077a19.9 19.9 0 0 0 6.033 3.049c.486-.66.92-1.363 1.293-2.103a12.9 12.9 0 0 1-2.036-.978c.171-.126.338-.257.499-.392 3.926 1.823 8.18 1.823 12.06 0 .163.135.33.266.5.392-.65.383-1.334.71-2.04.98.374.739.805 1.442 1.292 2.102a19.84 19.84 0 0 0 6.036-3.048c.5-5.177-.838-9.647-3.472-13.587ZM8.02 12.341c-1.182 0-2.152-1.086-2.152-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Zm7.96 0c-1.183 0-2.153-1.086-2.153-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn--primary" href="index.html#meetup">Next meetup</a>
           </li>
         </ul>
       </nav>
@@ -103,54 +95,118 @@
     </div>
   </section>
 
-  <!-- Resource groups -->
-  <main class="wrap">
-    <div class="res-group">
-      <h2 class="res-group__title">Start here</h2>
-      <a class="res-item" href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism" target="_blank" rel="noopener">
-        <h4>Introduction to Effective Altruism <span class="arrow">↗</span></h4>
-        <p>A clear, beginner-friendly overview of the core ideas.</p>
-      </a>
-      <a class="res-item" href="https://www.effectivealtruism.org/" target="_blank" rel="noopener">
-        <h4>EffectiveAltruism.org <span class="arrow">↗</span></h4>
-        <p>The central hub for the global effective altruism community.</p>
-      </a>
-    </div>
-
-    <div class="res-group">
-      <h2 class="res-group__title">Your career</h2>
-      <a class="res-item" href="https://80000hours.org/" target="_blank" rel="noopener">
-        <h4>80,000 Hours <span class="arrow">↗</span></h4>
-        <p>Free research and advice on using your career to do good.</p>
-      </a>
-      <a class="res-item" href="https://80000hours.org/career-guide/" target="_blank" rel="noopener">
-        <h4>The Career Guide <span class="arrow">↗</span></h4>
-        <p>A step-by-step guide to planning a high-impact career.</p>
-      </a>
-    </div>
-
-    <div class="res-group">
-      <h2 class="res-group__title">Giving effectively</h2>
-      <a class="res-item" href="https://www.givewell.org/" target="_blank" rel="noopener">
-        <h4>GiveWell <span class="arrow">↗</span></h4>
-        <p>In-depth research to find the charities that save the most lives per dollar.</p>
-      </a>
-      <a class="res-item" href="https://www.givingwhatwecan.org/" target="_blank" rel="noopener">
-        <h4>Giving What We Can <span class="arrow">↗</span></h4>
-        <p>A community of people pledging to give effectively.</p>
-      </a>
-    </div>
-
-    <div class="res-group">
-      <h2 class="res-group__title">Go deeper</h2>
-      <a class="res-item" href="https://forum.effectivealtruism.org/" target="_blank" rel="noopener">
-        <h4>The EA Forum <span class="arrow">↗</span></h4>
-        <p>Where the community discusses ideas, research, and open questions.</p>
-      </a>
-      <a class="res-item" href="https://www.givingwhatwecan.org/get-involved/effective-altruism-reading-list" target="_blank" rel="noopener">
-        <h4>EA Reading List <span class="arrow">↗</span></h4>
-        <p>Key essays behind the ideas. Much of this forms the basis of our fellowship.</p>
-      </a>
+  <!-- Resource tiles -->
+  <main class="wrap res-wall">
+    <div class="res-grid">
+      <article class="tile tile--deep" data-heart="triage">
+        <a class="tile__link" href="https://forum.effectivealtruism.org/posts/vQpk3cxdAe5RX9xzo/we-are-in-triage-every-second-of-every-day" target="_blank" rel="noopener">
+          <h3 class="tile__title">We Are in Triage Every Second of Every Day</h3>
+        </a>
+        <p class="tile__by">Holly Elmore</p>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;" aria-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">forum.effectivealtruism.org</span>
+        </div>
+      </article>
+      <article class="tile tile--white has-art" data-heart="killing-the-ants">
+        <img class="tile__art" src="assets/resources/killing-the-ants.jpg" alt="" aria-hidden="true"
+             width="760" height="570" loading="lazy" decoding="async" />
+        <a class="tile__link" href="https://joecarlsmith.com/2021/02/07/killing-the-ants/" target="_blank" rel="noopener">
+          <h3 class="tile__title">Killing the Ants</h3>
+        </a>
+        <p class="tile__by">Joe Carlsmith</p>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Killing the Ants&rdquo;" aria-label="Heart &ldquo;Killing the Ants&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">joecarlsmith.com</span>
+        </div>
+      </article>
+      <article class="tile tile--mist has-art" data-heart="on-sincerity">
+        <img class="tile__art" src="assets/resources/on-sincerity.jpg" alt="" aria-hidden="true"
+             width="760" height="570" loading="lazy" decoding="async" />
+        <a class="tile__link" href="https://joecarlsmith.com/2022/12/23/on-sincerity/" target="_blank" rel="noopener">
+          <h3 class="tile__title">On Sincerity</h3>
+        </a>
+        <p class="tile__by">Joe Carlsmith</p>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;On Sincerity&rdquo;" aria-label="Heart &ldquo;On Sincerity&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">joecarlsmith.com</span>
+        </div>
+      </article>
+      <article class="tile tile--sand has-art" data-heart="end-of-the-world">
+        <img class="tile__art" src="assets/resources/end-of-the-world.jpg" alt="" aria-hidden="true"
+             width="760" height="570" loading="lazy" decoding="async" />
+        <a class="tile__link" href="https://nataliercargill.substack.com/p/it-is-the-end-of-the-world-and-i" target="_blank" rel="noopener">
+          <h3 class="tile__title">It Is the End of the World and I Am Here to Take You Home</h3>
+        </a>
+        <p class="tile__by">Natalie Cargill</p>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;" aria-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">substack.com</span>
+        </div>
+      </article>
+      <article class="tile tile--teal" data-heart="intro-to-ea">
+        <a class="tile__link" href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism" target="_blank" rel="noopener">
+          <h3 class="tile__title">Introduction to Effective Altruism</h3>
+        </a>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;" aria-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">effectivealtruism.org</span>
+        </div>
+      </article>
+      <article class="tile tile--white" data-heart="80k-hours">
+        <a class="tile__link" href="https://80000hours.org/" target="_blank" rel="noopener">
+          <h3 class="tile__title">80,000 Hours</h3>
+        </a>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;80,000 Hours&rdquo;" aria-label="Heart &ldquo;80,000 Hours&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">80000hours.org</span>
+        </div>
+      </article>
+      <article class="tile tile--bright" data-heart="80k-career-guide">
+        <a class="tile__link" href="https://80000hours.org/career-guide/" target="_blank" rel="noopener">
+          <h3 class="tile__title">The Career Guide</h3>
+        </a>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;The Career Guide&rdquo;" aria-label="Heart &ldquo;The Career Guide&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">80000hours.org</span>
+        </div>
+      </article>
+      <article class="tile tile--mist" data-heart="givewell">
+        <a class="tile__link" href="https://www.givewell.org/" target="_blank" rel="noopener">
+          <h3 class="tile__title">GiveWell</h3>
+        </a>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;GiveWell&rdquo;" aria-label="Heart &ldquo;GiveWell&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">givewell.org</span>
+        </div>
+      </article>
+      <article class="tile tile--sand" data-heart="gwwc">
+        <a class="tile__link" href="https://www.givingwhatwecan.org/" target="_blank" rel="noopener">
+          <h3 class="tile__title">Giving What We Can</h3>
+        </a>
+        <div class="tile__foot">
+          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Giving What We Can&rdquo;" aria-label="Heart &ldquo;Giving What We Can&rdquo;">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+          </button>
+          <span class="tile__type">givingwhatwecan.org</span>
+        </div>
+      </article>
     </div>
   </main>
 
@@ -162,12 +218,12 @@
         <span>UofT Effective Altruism</span>
       </div>
       <ul class="footer__links">
-        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Team</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="index.html#apply">Fellowship</a></li>
+        <li><a href="index.html#meetup">Meetups</a></li>
+        <li><a href="discord.html">Discord</a></li>
       </ul>
     </div>
-    <p class="footer__made">Made with Fable 5 — before it got export controlled ;)</p>
   </footer>
 
   <script src="script.js"></script>

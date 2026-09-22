@@ -13,7 +13,21 @@
 
   --grad: linear-gradient(120deg, #0e879c 0%, #1b5266 100%);
 
+  /* Display face for page headlines; Inter carries everything else */
+  --display: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+
+  /* Resource tiles — a small assorted palette drawn from the EA teals,
+     warmed with a sand and a slate so the wall doesn't read as one hue */
+  --tile-deep: #1b5266;
+  --tile-teal: #0e879c;
+  --tile-bright: #2ba3b8;
+  --tile-mist: #dcecef;
+  --tile-sand: #f4ece0;
+
   --max: 1080px;
+
+  /* Flat hero band — no gradient, so the headline sits on one solid colour */
+  --hero-band: #e6eff1;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,35 +65,6 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   color: var(--teal);
 }
 
-/* ---------- Announcement bar (community / non-UTEA event) ---------- */
-.topbar {
-  background: rgba(14, 135, 156, 0.07);
-  border-bottom: 1px solid var(--line);
-  font-size: 0.88rem;
-}
-.topbar__inner {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 6px 14px;
-  flex-wrap: wrap;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: var(--ink);
-}
-.topbar__inner:hover { text-decoration: none; }
-.topbar__msg { color: var(--ink); }
-.topbar__cta { color: var(--teal); font-weight: 600; white-space: nowrap; }
-.topbar__inner:hover .topbar__cta { color: var(--teal-deep); }
-.topbar__group { display: contents; }
-.topbar__dup { display: none; }
-
-/* Seamless loop: track holds two copies; -50% lands copy 2 where copy 1 began */
-@keyframes topbar-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 /* ---------- Navigation ---------- */
 .nav {
   position: sticky;
@@ -87,7 +72,6 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   z-index: 50;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
 }
 
 .nav__inner {
@@ -170,6 +154,31 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 
 .btn--lg { padding: 11px 24px; font-size: 0.9rem; }
 
+/* Button carrying the Discord glyph */
+.btn--discord {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+.btn--discord svg { display: block; flex: none; }
+/* On the teal band the ghost button needs a light outline to be visible */
+.cta-band .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.cta-band .btn--ghost:hover { background: #fff; color: var(--teal-deep); border-color: #fff; }
+
+/* Discord icon in the nav — sits quietly next to the CTA */
+.discord-mark {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  transition: color 0.16s ease, transform 0.16s ease;
+}
+.discord-mark:hover { color: #5865f2; transform: translateY(-1px); }
+.discord-mark svg { display: block; }
+
 /* a quiet text link with arrow */
 .textlink {
   font-weight: 500;
@@ -195,18 +204,19 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   min-height: calc(100vh - var(--chrome-h, 112px));
   min-height: calc(100svh - var(--chrome-h, 112px));
   padding: 48px 0 104px;
-  background: radial-gradient(720px 520px at 18% 30%, rgba(14, 135, 156, 0.08), transparent 70%);
+  background: var(--hero-band);
+  border-bottom: 1px solid #d5e3e6;
 }
 
 .hero .wrap { position: relative; z-index: 2; }
-.hero__copy { max-width: 760px; }
+.hero__copy { max-width: 880px; }
 
 /* Campus watercolor — bled off the right edge; inner edge faded, right edge cut with a soft end */
 .hero__art {
   position: absolute;
   z-index: 1;
-  right: -56px;
-  top: 46%;
+  right: -72px;
+  top: 50%;
   transform: translateY(-50%);
   width: min(860px, 68vw);
   pointer-events: none;
@@ -223,35 +233,44 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   display: block;
   width: 100%;
   height: auto;
+  mix-blend-mode: multiply;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 43%, #000 85%, transparent 92%);
           mask-image: linear-gradient(to right, transparent 0%, #000 43%, #000 85%, transparent 92%);
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 4.8vw, 3.5rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(3.1rem, 7.8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 0.98;
   color: var(--ink);
 }
-.hero h1 .uoft { color: var(--teal-deep); }
-.hero h1 .accent {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.hero h1 .accent { color: var(--teal); }
 
 .hero__sub {
-  margin-top: 28px;
-  max-width: 540px;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  margin-top: 26px;
+  max-width: 660px;
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 400;
+  line-height: 1.5;
   color: var(--muted);
 }
 
+/* Two lifts out of the muted grey in the hero sub */
+.hero__sub-uoft { color: var(--teal); font-weight: 500; }
+
+/* The closing line of the hero sub, lifted out of the muted grey */
+.hero__sub-accent {
+  display: block;
+  margin-top: 8px;
+  color: var(--teal-deep);
+  font-weight: 500;
+}
+
 .hero__actions {
-  margin-top: 30px;
+  margin-top: 38px;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -292,50 +311,8 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 /* Fade the cue out once the page is scrolled */
 .nav.is-scrolled ~ .hero .hero__scroll { opacity: 0; pointer-events: none; }
 
-/* ---------- Sections ---------- */
-.section { padding: 92px 0; }
-.section--alt { background: var(--paper); }
-
-/* Offset smooth-scroll targets so headings clear the sticky nav */
-#about, #focus, #apply { scroll-margin-top: 88px; }
-
-.section__head { max-width: 640px; margin-bottom: 56px; }
-.section__head .label { display: block; margin-bottom: 16px; }
-.section__head h2 {
-  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-  font-weight: 400;
-  color: var(--ink);
-}
-.section__head p { margin-top: 14px; color: var(--muted); font-size: 1.12rem; }
-
-/* ---------- Principles (no boxes) ---------- */
-.cols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 44px;
-}
-
-.col { border-top: 1px solid var(--line); padding-top: 22px; }
-.col h3 { font-size: 1.22rem; color: var(--ink); margin-bottom: 8px; }
-.col p { color: var(--muted); font-size: 0.98rem; }
-
-/* ---------- Focus list (hairline rows) ---------- */
-.list { border-top: 1px solid var(--line); }
-.list__row {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 32px;
-  align-items: baseline;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line);
-}
-.list__row h3 {
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--ink);
-}
-.list__row .idx { color: var(--teal-bright); margin-right: 12px; font-variant-numeric: tabular-nums; }
-.list__row p { color: var(--muted); font-size: 1rem; }
+/* Offset the smooth-scroll target so the heading clears the sticky nav */
+#meetup { scroll-margin-top: 88px; }
 
 /* ---------- CTA band (full bleed, no rounded box) ---------- */
 .cta-band {
@@ -345,14 +322,14 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 }
 .cta-band .label { color: var(--teal-bright); display: block; margin-bottom: 18px; }
 .cta-band h2 {
-  font-size: clamp(1.9rem, 4.4vw, 2.9rem);
-  font-weight: 400;
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(2.1rem, 4.8vw, 3.2rem);
+  font-weight: 600;
   letter-spacing: -0.02em;
-  max-width: 660px;
 }
 .cta-band p {
   margin: 18px 0 34px;
-  max-width: 520px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.12rem;
 }
@@ -386,8 +363,8 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   list-style: none;
   margin-top: 28px;
   display: grid;
-  gap: 13px;
-  max-width: 540px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px 36px;
 }
 .cta-points li {
   position: relative;
@@ -415,79 +392,284 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   gap: 16px 24px;
   flex-wrap: wrap;
 }
-/* Scoped to beat .cta-band p (margin/size/color) so it centers with the button */
-.cta-band .cta-band__deadline {
-  margin: 0;
-  max-width: none;
-  font-size: 0.92rem;
-  letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.72);
-}
-.cta-band__deadline strong {
-  font-weight: 600;
-  color: #fff;
-}
-.cta-band__deadline s { color: rgba(255, 255, 255, 0.45); }
-
-/* Hero deadline — a compact line set off by a quiet teal accent bar */
-.hero__deadline {
-  margin-top: 24px;
-  display: inline-block;
-  padding-left: 14px;
-  border-left: 2px solid var(--teal);
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: var(--muted);
-}
-.hero__deadline strong { font-weight: 600; color: var(--teal-deep); }
-.hero__deadline s { opacity: 0.55; }
-
 /* ---------- Resources page ---------- */
 .page-hero {
   padding: 60px 0 36px;
-  border-bottom: 1px solid var(--line);
 }
 .page-hero .label { display: block; margin-bottom: 18px; }
 .page-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(2.4rem, 5.4vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 .page-hero p { margin-top: 18px; max-width: 600px; color: var(--muted); font-size: 1.15rem; }
 
-.res-group { padding: 32px 0; border-bottom: 1px solid var(--line); }
-.res-group__title {
-  font-size: 0.92rem;
+/* Small term tag sitting beside a page-hero heading (e.g. "Team F26") */
+.page-hero__tag {
+  margin-left: 14px;
+  font-size: 0.32em;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 8px;
+  letter-spacing: 0.14em;
+  vertical-align: middle;
+  color: var(--teal-bright);
 }
 
-.res-item {
+.res-wall { padding: 40px 0 64px; }
+
+.res-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 32px;
-  align-items: baseline;
-  padding: 16px 0;
-  border-top: 1px solid var(--line);
-  transition: padding-left 0.16s ease;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 16px;
 }
-.res-item:hover { padding-left: 8px; }
-.res-item h4 {
-  font-size: 1.15rem;
-  font-weight: 400;
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 178px;
+  padding: 20px 20px 14px;
+  border-radius: 14px;
   color: var(--ink);
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.16s ease;
+}
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(22, 50, 58, 0.13);
+}
+
+/* The title/blurb anchor stretches over the whole card, so the tile is one big
+   click target — the heart button sits above it via z-index. */
+.tile__link { color: inherit; }
+.tile__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.tile__link:hover { color: inherit; }
+
+.tile__title {
+  font-size: 1.18rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: inherit;
+}
+.tile__by {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+  overflow-wrap: anywhere;
+}
+
+/* The article's own cover art, faded into the tile and masked away from the
+   top-left so the title always sits on flat colour. */
+.tile__art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.26;
+  transition: opacity 0.22s ease;
+  -webkit-mask-image: linear-gradient(to top left, #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 88%);
+          mask-image: linear-gradient(to top left, #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 88%);
+}
+.tile:hover .tile__art { opacity: 0.38; }
+/* Dark tiles need the art lifted a little to read at all */
+.tile--deep .tile__art,
+.tile--teal .tile__art,
+.tile--bright .tile__art { opacity: 0.34; }
+.tile--deep:hover .tile__art,
+.tile--teal:hover .tile__art,
+.tile--bright:hover .tile__art { opacity: 0.46; }
+/* Everything except the art sits above it */
+.tile > *:not(.tile__art) { position: relative; z-index: 1; }
+
+.tile__foot {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Type label — quiet text in the bottom-right, no box */
+.tile__type {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* --- Heart --- */
+.heart {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  padding: 4px 8px 4px 6px;
+  margin-left: -6px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.16s ease, background 0.16s ease, transform 0.16s ease;
 }
-.res-item:hover h4 { color: var(--teal); }
-.res-item h4 .arrow { color: var(--teal-bright); transition: transform 0.16s ease; }
-.res-item:hover h4 .arrow { transform: translate(3px, -3px); }
-.res-item p { color: var(--muted); font-size: 0.98rem; }
+.heart:hover { opacity: 1; background: rgba(127, 127, 127, 0.14); }
+.heart svg { display: block; flex: none; transition: transform 0.18s ease; }
+.heart:active svg { transform: scale(0.85); }
+
+/* Hearted: fill it in. Red on light tiles, white on the dark ones. */
+.heart.is-on { opacity: 1; }
+.heart.is-on svg path { fill: #e0465f; stroke: #e0465f; }
+.tile--deep .heart.is-on svg path,
+.tile--teal .heart.is-on svg path,
+.tile--bright .heart.is-on svg path { fill: #fff; stroke: #fff; }
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.32); }
+  100% { transform: scale(1); }
+}
+.heart.is-popping svg { animation: heart-pop 0.32s ease-out; }
+
+/* The count is always shown, so it reads as "3 people loved this", not as a
+   button whose number may or may not turn up. */
+.heart__count { min-width: 0.7em; text-align: left; }
+
+/* --- Tones: assorted palette fills, plus white-with-outline --- */
+.tile--deep   { background: var(--tile-deep);   color: #fff; }
+.tile--teal   { background: var(--tile-teal);   color: #fff; }
+.tile--bright { background: var(--tile-bright); color: #fff; }
+.tile--mist   { background: var(--tile-mist);   color: var(--ink); }
+.tile--sand   { background: var(--tile-sand);   color: var(--ink); }
+.tile--white  { background: var(--white); color: var(--ink); border-color: var(--line); }
+.tile--white:hover { border-color: var(--teal-bright); }
+
+/* ---------- Team page ---------- */
+.team-wall { padding: 40px 0 72px; }
+
+/* Photo on the left, the roster beside it */
+.team-split {
+  display: grid;
+  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.team-photo { margin: 0; max-width: 440px; }
+.team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.team-list { list-style: none; }
+/* Beside the photo the roster starts flush with the image top */
+.team-split .team-list { margin-top: -10px; }
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+}
+.member__name {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.member__links { display: flex; align-items: center; gap: 6px; flex: none; }
+
+.iconlink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+.iconlink:hover { color: var(--teal); background: var(--paper); }
+.iconlink svg { display: block; }
+/* Not filled in yet — visible but inert, so the row still reads evenly */
+.iconlink.is-missing {
+  opacity: 0.22;
+  pointer-events: none;
+  cursor: default;
+}
+/* Copied: the envelope becomes a tick for a couple of seconds */
+.iconlink.is-copied { color: var(--teal); background: var(--paper); }
+.iconlink.is-copied svg { display: none; }
+.iconlink.is-copied::after {
+  content: "¹3";
+  font-size: 1rem;
+  line-height: 1;
+}
+.iconlink.is-copy-failed { color: #b0405a; }
+.iconlink.is-copy-failed::after { content: "¹5"; }
+
+/* A text button that has just copied something */
+.btn.is-copied,
+.btn.is-copied:hover {
+  background: var(--teal-deep);
+  border-color: var(--teal-deep);
+  color: #fff;
+}
+.cta-band .btn.is-copied,
+.cta-band .btn.is-copied:hover { background: var(--paper); color: var(--teal-deep); }
+
+/* ---------- Discord gate (discord.html) ---------- */
+.gate {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--chrome-h, 72px) - 150px);
+  padding: 72px 0;
+}
+.gate__inner { max-width: 620px; }
+.gate__mark { display: block; color: #5865f2; margin-bottom: 26px; }
+.gate__mark svg { display: block; }
+.gate h1 {
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.gate__lede { margin-top: 18px; color: var(--muted); font-size: 1.08rem; }
+.gate__actions {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px 24px;
+  flex-wrap: wrap;
+}
+.gate__note { margin-top: 18px; font-size: 0.86rem; color: var(--muted); opacity: 0.85; }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -511,24 +693,14 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 .footer__brand img { height: 26px; width: auto; flex: none; }
 .footer__brand span { font-weight: 500; color: var(--ink); }
 
-.footer__made {
-  margin: 16px 0 0;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--muted);
-  opacity: 0.7;
-}
-
 /* ---------- Scroll reveal ("words land" as they enter) ----------
    The hidden state is applied via the .reveal class (added before first paint
    by the <head> guard) so revealed content never flashes in then jumps. */
 .reveal .hero__copy > *,
-.reveal .section__head > *,
-.reveal .cols .col,
-.reveal .list .list__row,
 .reveal .cta-band .wrap > *,
 .reveal .page-hero .wrap > *,
-.reveal main.wrap .res-group {
+.reveal .team-list .member,
+.reveal .res-grid .tile {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
@@ -548,26 +720,21 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
-  .res-item:hover { padding-left: 0; }
   /* Insurance: never leave revealed content hidden for reduced-motion users */
   .reveal .hero__copy > *,
-  .reveal .section__head > *,
-  .reveal .cols .col,
-  .reveal .list .list__row,
   .reveal .cta-band .wrap > *,
   .reveal .page-hero .wrap > *,
-  .reveal main.wrap .res-group { opacity: 1 !important; transform: none !important; }
+  .reveal .team-list .member,
+  .reveal .res-grid .tile { opacity: 1 !important; transform: none !important; }
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
+  .cta-points { grid-template-columns: 1fr; }
+  .team-split { grid-template-columns: 1fr; gap: 32px; }
+  .team-photo { max-width: 520px; }
   .hero__art { display: none; }
   .hero__copy { max-width: 620px; }
-  .cols { grid-template-columns: 1fr; gap: 0; }
-  .col { padding: 24px 0; }
-  .col:not(:last-child) { border-bottom: none; }
-  .list__row,
-  .res-item { grid-template-columns: 1fr; gap: 8px; }
   .nav__links { gap: 18px; }
   .nav__links .nav-hide { display: none; }
 }
@@ -577,6 +744,7 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
   .brand__full { display: none; }
   .brand__short { display: inline; letter-spacing: 0.02em; }
   .nav__links li:not(:last-child) { display: none; }
+  .nav__links li:has(> .discord-mark) { display: flex; }
   .nav .btn--primary {
     padding: 8px 13px;
     font-size: 0.82rem;
@@ -587,54 +755,17 @@ h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.015em; line-height: 1.15; 
 
 @media (max-width: 560px) {
   .wrap { padding: 0 18px; }
+  .res-grid { grid-template-columns: 1fr; }
+  .member { gap: 12px; }
+  .member__name { font-size: 1.1rem; }
+  .team-photo { margin-bottom: 32px; }
+  .gate { padding: 48px 0; min-height: 0; }
+  .tile { min-height: 0; }
   .hero { padding: 40px 0 84px; }
-  .hero h1 { font-size: clamp(1.9rem, 8.5vw, 2.35rem); }
-  .hero__sub { font-size: 1.05rem; margin-top: 20px; }
-  .hero__actions { margin-top: 28px; gap: 10px; }
+  .hero h1 { font-size: clamp(2.3rem, 11vw, 3.1rem); line-height: 1.06; }
+  .hero__sub { font-size: 1.08rem; margin-top: 22px; }
+  .hero__actions { margin-top: 30px; gap: 10px; }
   .btn--lg { padding: 10px 16px; font-size: 0.82rem; }
-  .section, .cta-band { padding: 56px 0; }
-  .section__head { margin-bottom: 36px; }
+  .cta-band { padding: 56px 0; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
-
-  /* announcement bar becomes a seamless horizontal marquee on phones */
-  .topbar { overflow: hidden; font-size: 0.8rem; }
-  .topbar__inner {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 0;
-    width: max-content;
-    max-width: none;
-    margin: 0;
-    padding: 6px 0;
-    animation: topbar-scroll 22s linear infinite;
-    animation-delay: -15s; /* start mid-scroll so the label is already on screen */
-    will-change: transform;
-  }
-  .topbar__group {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 6px 14px;
-    padding-right: 36px; /* small gap between repeats */
-    white-space: nowrap;
-  }
-  .topbar__dup { display: inline-flex; }
-  .topbar .label, .topbar__msg, .topbar__cta { white-space: nowrap; }
-}
-
-/* Reduced-motion users: don't scroll — wrap the bar instead */
-@media (prefers-reduced-motion: reduce) {
-  .topbar { overflow: visible; }
-  .topbar__inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px 14px;
-    white-space: normal;
-    width: auto;
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 10px 18px;
-    animation: none;
-  }
-  .topbar__group { display: contents; }
-  .topbar__dup { display: none; }
 }
