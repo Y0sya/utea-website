@@ -1,0 +1,13 @@
+{
+  // Deploys the site as a Cloudflare Worker: the repo's files are static
+  // assets, and worker.js handles the one dynamic route (/api/events, the
+  // meetup calendar). Workers Builds runs `npx wrangler deploy` on every push
+  // to main. Files listed in .assetsignore are not published.
+  "name": "utea-website",
+  "main": "worker.js",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
+}
