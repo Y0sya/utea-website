@@ -57,7 +57,7 @@
     href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:wght@400..700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <!-- Navigation -->
@@ -175,17 +175,9 @@
           <figcaption>ACX x EA University of Toronto Meetup</figcaption>
         </figure>
 
-        <div class="cal" data-calendar>
+        <div class="cal">
           <div class="cal__head">
-            <div class="cal__nav">
-              <button class="icon-btn" type="button" data-cal-prev aria-label="Previous month">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6"/></svg>
-              </button>
-              <h3 class="cal__month" aria-live="polite">October 2026</h3>
-              <button class="icon-btn" type="button" data-cal-next aria-label="Next month">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg>
-              </button>
-            </div>
+            <h3 class="cal__title">Upcoming</h3>
             <details class="subscribe">
               <summary class="btn btn--outline">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
@@ -193,7 +185,7 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </summary>
               <ul class="menu">
-                <li><a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fapi.lu.ma%2Fics%2Fget%3Fentity%3Dcalendar%26id%3Dcal-fh8Pi0BvCtkoalt" target="_blank" rel="noopener">Google Calendar</a></li>
+                <li><a href="https://calendar.google.com/calendar/render?cid=http%3A%2F%2Fapi.luma.com%2Fics%2Fget%3Fentity%3Dcalendar%26id%3Dcal-fh8Pi0BvCtkoalt" target="_blank" rel="noopener">Google Calendar</a></li>
                 <li><a href="webcal://api.lu.ma/ics/get?entity=calendar&amp;id=cal-fh8Pi0BvCtkoalt">Apple Calendar</a></li>
                 <li><a href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fapi.lu.ma%2Fics%2Fget%3Fentity%3Dcalendar%26id%3Dcal-fh8Pi0BvCtkoalt&amp;name=UTEA" target="_blank" rel="noopener">Outlook</a></li>
                 <li><a href="https://lu.ma/utea" target="_blank" rel="noopener">Luma</a></li>
@@ -204,19 +196,14 @@
             </details>
           </div>
 
-          <div class="cal__dow" aria-hidden="true">
-            <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
-          </div>
-          <div class="cal__grid"></div>
-
-          <div class="cal__upcoming">
-            <h3 class="cal__label">Upcoming</h3>
-            <ul class="cal__list" hidden></ul>
-            <p class="cal__empty" hidden>No upcoming meetups yet.</p>
-            <noscript>
-              <p class="cal__empty">See upcoming meetups on <a href="https://lu.ma/utea">lu.ma/utea</a>.</p>
-            </noscript>
-          </div>
+          <!-- Luma's own embed of the UTEA calendar (lu.ma/utea): always current, RSVPs handled by Luma. -->
+          <iframe
+            class="cal__embed"
+            src="https://luma.com/embed/calendar/cal-fh8Pi0BvCtkoalt/events?compact=true&amp;lt=light"
+            title="Upcoming UTEA events on Luma"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
@@ -299,6 +286,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

@@ -43,7 +43,7 @@
     href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:wght@400..700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <!-- Navigation -->
@@ -79,9 +79,10 @@
       </div>
     </section>
 
-    <!-- Exec. LinkedIn and email buttons only appear once we have them:
-         add <a class="circle-btn" href="LINKEDIN_URL" ...> or
-         <button class="circle-btn" data-copy="EMAIL" ...> inside .member__links. -->
+    <!-- Exec. The mail icon copies the person's email to the clipboard. Emails are
+         stored reversed + base64'd in data-copy-r64 so scrapers don't find them:
+         node -e 'console.log(Buffer.from("EMAIL").toString("base64").split("").reverse().join(""))'
+         LinkedIn: add <a class="circle-btn" href="LINKEDIN_URL" ...> inside .member__links. -->
     <section class="team-section">
       <div class="wrap">
         <ul class="team">
@@ -89,26 +90,37 @@
             <img class="member__photo" src="assets/team/brendan-lin.jpg" width="800" height="1000" alt="Portrait of Brendan Lin" />
             <h2 class="member__name">Brendan Lin</h2>
             <p class="member__role">Co-president</p>
-            <div class="member__links"><!-- TODO: LinkedIn, email --></div>
+            <div class="member__links">
+              <button class="circle-btn" type="button" data-copy-r64="==QYj5yb052by9Gd15CbpFWbA5Was5ibhRmblJnY" aria-label="Copy Brendan Lin's email address" title="Copy email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </li>
           <li class="member">
             <img class="member__photo" src="assets/team/terrence-guo.jpg" width="800" height="1000" alt="Portrait of Terrence Guo" />
             <h2 class="member__name">Terrence Guo</h2>
             <p class="member__role">Co-president</p>
-            <div class="member__links"><!-- TODO: LinkedIn, email --></div>
+            <div class="member__links">
+              <button class="circle-btn" type="button" data-copy-r64="==QbvNmLslWYtdGQlNmblJnclRnLvV3Z" aria-label="Copy Terrence Guo's email address" title="Copy email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </li>
           <li class="member">
             <!-- TODO: replace the initials with a portrait (assets/team/abilash-suresh.jpg, 4:5) -->
             <div class="member__photo member__initials" aria-hidden="true">AS</div>
             <h2 class="member__name">Abilash Suresh</h2>
-            <div class="member__links"><!-- TODO: LinkedIn, email --></div>
+            <div class="member__links">
+              <button class="circle-btn" type="button" data-copy-r64="t92YuwWah12ZAlTOxg2clJXdz5CazFGbpJWY" aria-label="Copy Abilash Suresh's email address" title="Copy email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </li>
           <li class="member">
             <img class="member__photo" src="assets/team/joseph-kostousov.jpg" width="800" height="1000" alt="Portrait of Joseph Kostousov" />
             <h2 class="member__name">Joseph Kostousov</h2>
             <div class="member__links">
-              <!-- TODO: LinkedIn -->
-              <button class="circle-btn" type="button" data-copy="joseph.kostousov@mail.utoronto.ca" aria-label="Copy Joseph Kostousov's email address">
+              <button class="circle-btn" type="button" data-copy-r64="hNmLvRnbvJ3b0VnLslWYtBkdvNXdvR3cvtmLoBXZz9ma" aria-label="Copy Joseph Kostousov's email address" title="Copy email">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </div>
@@ -125,6 +137,11 @@
           <div class="founder__text">
             <h2 class="member__name">Sophia Wan</h2>
             <p class="member__role">Founder</p>
+            <div class="member__links">
+              <button class="circle-btn" type="button" data-copy-r64="t92YuwWah12ZAFDMuF2dhlGaw92c" aria-label="Copy Sophia Wan's email address" title="Copy email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -149,6 +166,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
