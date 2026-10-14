@@ -3,14 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    // Hide scroll-reveal targets before first paint (script.js reveals them on
-    // scroll), only when motion is allowed and IntersectionObserver is present.
-    if ("IntersectionObserver" in window &&
-        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.documentElement.classList.add("reveal");
-    }
-  </script>
   <title>Resources for Doing Good · University of Toronto Effective Altruism</title>
   <meta
     name="description"
@@ -48,184 +40,182 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:wght@400..700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <!-- Navigation -->
   <header class="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="index.html" aria-label="UofT Effective Altruism home">
-        <img class="brand__mark" src="assets/ea-logo.svg" alt="" aria-hidden="true" />
+        <img src="assets/ea-logo.svg" alt="" />
         <span class="brand__text">
           <span class="brand__full">University of Toronto Effective Altruism</span>
           <span class="brand__short">UTEA</span>
         </span>
       </a>
-
-      <nav>
+      <nav aria-label="Main">
         <ul class="nav__links">
-          <li class="nav-hide"><a href="team.html">Team</a></li>
-          <li><a href="resources.html">Resources</a></li>
+          <li class="hide-sm"><a class="nav__link" href="team.html">Team</a></li>
+          <li><a class="nav__link" href="resources.html" aria-current="page">Resources</a></li>
           <li>
-            <a class="discord-mark" href="discord.html" aria-label="Join the UTEA Discord" title="Join our Discord">
-              <svg viewBox="0 0 24 18" width="22" height="17" fill="currentColor" aria-hidden="true" focusable="false">
-                <path d="M20.317 1.492A19.79 19.79 0 0 0 15.432 0c-.21.375-.456.88-.625 1.28a18.27 18.27 0 0 0-5.61 0C9.028.88 8.776.375 8.564 0A19.736 19.736 0 0 0 3.677 1.496C.573 6.12-.27 10.63.152 15.077a19.9 19.9 0 0 0 6.033 3.049c.486-.66.92-1.363 1.293-2.103a12.9 12.9 0 0 1-2.036-.978c.171-.126.338-.257.499-.392 3.926 1.823 8.18 1.823 12.06 0 .163.135.33.266.5.392-.65.383-1.334.71-2.04.98.374.739.805 1.442 1.292 2.102a19.84 19.84 0 0 0 6.036-3.048c.5-5.177-.838-9.647-3.472-13.587ZM8.02 12.341c-1.182 0-2.152-1.086-2.152-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Zm7.96 0c-1.183 0-2.153-1.086-2.153-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Z"/>
-              </svg>
+            <a class="nav__icon" href="discord.html" aria-label="Join the UTEA Discord" title="Join our Discord">
+              <svg viewBox="0 0 24 18" width="21" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 1.492A19.79 19.79 0 0 0 15.432 0c-.21.375-.456.88-.625 1.28a18.27 18.27 0 0 0-5.61 0C9.028.88 8.776.375 8.564 0A19.736 19.736 0 0 0 3.677 1.496C.573 6.12-.27 10.63.152 15.077a19.9 19.9 0 0 0 6.033 3.049c.486-.66.92-1.363 1.293-2.103a12.9 12.9 0 0 1-2.036-.978c.171-.126.338-.257.499-.392 3.926 1.823 8.18 1.823 12.06 0 .163.135.33.266.5.392-.65.383-1.334.71-2.04.98.374.739.805 1.442 1.292 2.102a19.84 19.84 0 0 0 6.036-3.048c.5-5.177-.838-9.647-3.472-13.587ZM8.02 12.341c-1.182 0-2.152-1.086-2.152-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Zm7.96 0c-1.183 0-2.153-1.086-2.153-2.418 0-1.333.95-2.42 2.152-2.42 1.203 0 2.173 1.086 2.152 2.42 0 1.332-.95 2.418-2.152 2.418Z"/></svg>
             </a>
           </li>
-          <li>
-            <a class="btn btn--primary" href="index.html#meetup">Next meetup</a>
-          </li>
+          <li><a class="btn btn--primary btn--sm" href="index.html#meetup">Next meetup</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Page hero -->
-  <section class="page-hero">
-    <div class="wrap">
-      <h1>Resources for doing good</h1>
-      <p>
-        A starting point of trusted, well-established resources for finding the most
-        effective ways to do good with your time, money, and career.
-      </p>
-    </div>
-  </section>
+  <main>
+    <section class="page-head page-head--rule">
+      <div class="wrap">
+        <h1>Resources for doing good</h1>
+        <p>
+          A starting point of trusted, well-established resources for finding the most
+          effective ways to do good with your time, money, and career.
+        </p>
+      </div>
+    </section>
 
-  <!-- Resource tiles -->
-  <main class="wrap res-wall">
-    <div class="res-grid">
-      <article class="tile tile--deep" data-heart="triage">
-        <a class="tile__link" href="https://forum.effectivealtruism.org/posts/vQpk3cxdAe5RX9xzo/we-are-in-triage-every-second-of-every-day" target="_blank" rel="noopener">
-          <h3 class="tile__title">We Are in Triage Every Second of Every Day</h3>
-        </a>
-        <p class="tile__by">Holly Elmore</p>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;" aria-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">forum.effectivealtruism.org</span>
+    <!-- Essays -->
+    <section class="res-group">
+      <div class="wrap">
+        <h2 class="group-title">Essays</h2>
+        <div class="cards cards--4">
+          <article class="card" data-heart="triage">
+            <div class="card__art card__art--mark"><img src="assets/ea-logo-white.svg" alt="" /></div>
+            <div class="card__body">
+              <h3 class="card__title"><a href="https://forum.effectivealtruism.org/posts/vQpk3cxdAe5RX9xzo/we-are-in-triage-every-second-of-every-day" target="_blank" rel="noopener">We Are in Triage Every Second of Every Day</a></h3>
+              <p class="card__by">Holly Elmore</p>
+              <div class="card__foot">
+                <span class="card__site">forum.effectivealtruism.org</span>
+                <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;" aria-label="Heart &ldquo;We Are in Triage Every Second of Every Day&rdquo;">
+                  <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card" data-heart="killing-the-ants">
+            <img class="card__art" src="assets/resources/killing-the-ants.jpg" alt="" width="760" height="570" loading="lazy" decoding="async" />
+            <div class="card__body">
+              <h3 class="card__title"><a href="https://joecarlsmith.com/2021/02/07/killing-the-ants/" target="_blank" rel="noopener">Killing the Ants</a></h3>
+              <p class="card__by">Joe Carlsmith</p>
+              <div class="card__foot">
+                <span class="card__site">joecarlsmith.com</span>
+                <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Killing the Ants&rdquo;" aria-label="Heart &ldquo;Killing the Ants&rdquo;">
+                  <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card" data-heart="on-sincerity">
+            <img class="card__art" src="assets/resources/on-sincerity.jpg" alt="" width="760" height="570" loading="lazy" decoding="async" />
+            <div class="card__body">
+              <h3 class="card__title"><a href="https://joecarlsmith.com/2022/12/23/on-sincerity/" target="_blank" rel="noopener">On Sincerity</a></h3>
+              <p class="card__by">Joe Carlsmith</p>
+              <div class="card__foot">
+                <span class="card__site">joecarlsmith.com</span>
+                <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;On Sincerity&rdquo;" aria-label="Heart &ldquo;On Sincerity&rdquo;">
+                  <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card" data-heart="end-of-the-world">
+            <img class="card__art" src="assets/resources/end-of-the-world.jpg" alt="" width="760" height="570" loading="lazy" decoding="async" />
+            <div class="card__body">
+              <h3 class="card__title"><a href="https://nataliercargill.substack.com/p/it-is-the-end-of-the-world-and-i" target="_blank" rel="noopener">It Is the End of the World and I Am Here to Take You Home</a></h3>
+              <p class="card__by">Natalie Cargill</p>
+              <div class="card__foot">
+                <span class="card__site">substack.com</span>
+                <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;" aria-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;">
+                  <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="tile tile--white has-art" data-heart="killing-the-ants">
-        <img class="tile__art" src="assets/resources/killing-the-ants.jpg" alt="" aria-hidden="true"
-             width="760" height="570" loading="lazy" decoding="async" />
-        <a class="tile__link" href="https://joecarlsmith.com/2021/02/07/killing-the-ants/" target="_blank" rel="noopener">
-          <h3 class="tile__title">Killing the Ants</h3>
-        </a>
-        <p class="tile__by">Joe Carlsmith</p>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Killing the Ants&rdquo;" aria-label="Heart &ldquo;Killing the Ants&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">joecarlsmith.com</span>
-        </div>
-      </article>
-      <article class="tile tile--mist has-art" data-heart="on-sincerity">
-        <img class="tile__art" src="assets/resources/on-sincerity.jpg" alt="" aria-hidden="true"
-             width="760" height="570" loading="lazy" decoding="async" />
-        <a class="tile__link" href="https://joecarlsmith.com/2022/12/23/on-sincerity/" target="_blank" rel="noopener">
-          <h3 class="tile__title">On Sincerity</h3>
-        </a>
-        <p class="tile__by">Joe Carlsmith</p>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;On Sincerity&rdquo;" aria-label="Heart &ldquo;On Sincerity&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">joecarlsmith.com</span>
-        </div>
-      </article>
-      <article class="tile tile--sand has-art" data-heart="end-of-the-world">
-        <img class="tile__art" src="assets/resources/end-of-the-world.jpg" alt="" aria-hidden="true"
-             width="760" height="570" loading="lazy" decoding="async" />
-        <a class="tile__link" href="https://nataliercargill.substack.com/p/it-is-the-end-of-the-world-and-i" target="_blank" rel="noopener">
-          <h3 class="tile__title">It Is the End of the World and I Am Here to Take You Home</h3>
-        </a>
-        <p class="tile__by">Natalie Cargill</p>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;" aria-label="Heart &ldquo;It Is the End of the World and I Am Here to Take You Home&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">substack.com</span>
-        </div>
-      </article>
-      <article class="tile tile--teal" data-heart="intro-to-ea">
-        <a class="tile__link" href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism" target="_blank" rel="noopener">
-          <h3 class="tile__title">Introduction to Effective Altruism</h3>
-        </a>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;" aria-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">effectivealtruism.org</span>
-        </div>
-      </article>
-      <article class="tile tile--white" data-heart="80k-hours">
-        <a class="tile__link" href="https://80000hours.org/" target="_blank" rel="noopener">
-          <h3 class="tile__title">80,000 Hours</h3>
-        </a>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;80,000 Hours&rdquo;" aria-label="Heart &ldquo;80,000 Hours&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">80000hours.org</span>
-        </div>
-      </article>
-      <article class="tile tile--bright" data-heart="80k-career-guide">
-        <a class="tile__link" href="https://80000hours.org/career-guide/" target="_blank" rel="noopener">
-          <h3 class="tile__title">The Career Guide</h3>
-        </a>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;The Career Guide&rdquo;" aria-label="Heart &ldquo;The Career Guide&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">80000hours.org</span>
-        </div>
-      </article>
-      <article class="tile tile--mist" data-heart="givewell">
-        <a class="tile__link" href="https://www.givewell.org/" target="_blank" rel="noopener">
-          <h3 class="tile__title">GiveWell</h3>
-        </a>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;GiveWell&rdquo;" aria-label="Heart &ldquo;GiveWell&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">givewell.org</span>
-        </div>
-      </article>
-      <article class="tile tile--sand" data-heart="gwwc">
-        <a class="tile__link" href="https://www.givingwhatwecan.org/" target="_blank" rel="noopener">
-          <h3 class="tile__title">Giving What We Can</h3>
-        </a>
-        <div class="tile__foot">
-          <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Giving What We Can&rdquo;" aria-label="Heart &ldquo;Giving What We Can&rdquo;">
-            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
-          </button>
-          <span class="tile__type">givingwhatwecan.org</span>
-        </div>
-      </article>
-    </div>
+      </div>
+    </section>
+
+    <!-- Guides and organizations -->
+    <section class="res-group">
+      <div class="wrap">
+        <h2 class="group-title">Guides and organizations</h2>
+        <ul class="rows">
+          <li class="row" data-heart="intro-to-ea">
+            <a class="row__link" href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism" target="_blank" rel="noopener">
+              <span class="row__text"><span class="row__title">Introduction to Effective Altruism</span><span class="row__site">effectivealtruism.org</span></span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;" aria-label="Heart &ldquo;Introduction to Effective Altruism&rdquo;">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+            </button>
+          </li>
+          <li class="row" data-heart="80k-hours">
+            <a class="row__link" href="https://80000hours.org/" target="_blank" rel="noopener">
+              <span class="row__text"><span class="row__title">80,000 Hours</span><span class="row__site">80000hours.org</span></span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;80,000 Hours&rdquo;" aria-label="Heart &ldquo;80,000 Hours&rdquo;">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+            </button>
+          </li>
+          <li class="row" data-heart="80k-career-guide">
+            <a class="row__link" href="https://80000hours.org/career-guide/" target="_blank" rel="noopener">
+              <span class="row__text"><span class="row__title">The Career Guide</span><span class="row__site">80000hours.org</span></span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;The Career Guide&rdquo;" aria-label="Heart &ldquo;The Career Guide&rdquo;">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+            </button>
+          </li>
+          <li class="row" data-heart="givewell">
+            <a class="row__link" href="https://www.givewell.org/" target="_blank" rel="noopener">
+              <span class="row__text"><span class="row__title">GiveWell</span><span class="row__site">givewell.org</span></span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;GiveWell&rdquo;" aria-label="Heart &ldquo;GiveWell&rdquo;">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+            </button>
+          </li>
+          <li class="row" data-heart="gwwc">
+            <a class="row__link" href="https://www.givingwhatwecan.org/" target="_blank" rel="noopener">
+              <span class="row__text"><span class="row__title">Giving What We Can</span><span class="row__site">givingwhatwecan.org</span></span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="heart" type="button" aria-pressed="false" data-label="Heart &ldquo;Giving What We Can&rdquo;" aria-label="Heart &ldquo;Giving What We Can&rdquo;">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path d="M12 20.7 3.9 12.9A5.1 5.1 0 0 1 12 6.4a5.1 5.1 0 0 1 8.1 6.5L12 20.7Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="heart__count" aria-hidden="true">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="wrap footer__inner">
-      <div class="footer__brand">
-        <img src="assets/ea-logo.svg" alt="" aria-hidden="true" />
-        <span>UofT Effective Altruism</span>
-      </div>
-      <ul class="footer__links">
-        <li><a href="team.html">Team</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="index.html#meetup">Meetups</a></li>
-        <li><a href="discord.html">Discord</a></li>
-      </ul>
+      <a class="footer__brand" href="index.html">
+        <img src="assets/ea-logo-white.svg" alt="" />
+        UofT Effective Altruism
+      </a>
+      <nav aria-label="Footer">
+        <ul class="footer__links">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="index.html#meetup">Meetups</a></li>
+          <li><a href="discord.html">Discord</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

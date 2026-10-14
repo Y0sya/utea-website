@@ -18,3 +18,9 @@ _check.png
 /cover1.png
 /cover2.png
 /example.htm
+
+# Claude Design source for the 2026-10 redesign (published as a canvas, not deployed)
+redesign/
+
+# Local preview config
+.claude/
